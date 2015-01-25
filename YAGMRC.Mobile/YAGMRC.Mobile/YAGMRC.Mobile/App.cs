@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using YAGMRC.Mobile.Pages;
 
 namespace YAGMRC.Mobile
 {
@@ -12,7 +13,7 @@ namespace YAGMRC.Mobile
 
         public App()
         {
-            this.MainPage = new MainPage();
+            this.MainPage = new NavigationPage(new MainPage());
         }
 
     }

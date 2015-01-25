@@ -1,5 +1,4 @@
-﻿using ModernHttpClient;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,7 +26,7 @@ namespace YAGMRC.Mobile
         public async Task<T> Execute<T>(string rest)
         {
             Uri diplomacyUri = new Uri(m_BaseUri, rest);
-            using (HttpClient httpClient = new HttpClient(new NativeMessageHandler()))
+            using (HttpClient httpClient = new HttpClient(new MyHttpClientHandler()))
             {
                 Task<string> stringTask = httpClient.GetStringAsync(diplomacyUri);
 
@@ -35,6 +34,12 @@ namespace YAGMRC.Mobile
                 return JsonConvert.DeserializeObject<T>(str);
             }
         }
+
+    }
+
+    public class MyHttpClientHandler: HttpClientHandler
+    {
+       
 
     }
 }
