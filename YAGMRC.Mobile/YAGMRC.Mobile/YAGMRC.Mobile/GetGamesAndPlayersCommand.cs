@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YAGMRC.Mobile.Model.GetGamesForPlayer;
+
 
 namespace YAGMRC.Mobile
 {
@@ -15,7 +15,7 @@ namespace YAGMRC.Mobile
         {
         }
 
-        internal GetGamesAndPlayersCommand(GetGamesForPlayerCommandResult getGamesForPlayerCommandResult, string authKey, DownloadWithJson communication)
+        internal GetGamesAndPlayersCommand(YAGMRC.Mobile.Model.GetGamesForPlayer.GetGamesForPlayerCommandResult getGamesForPlayerCommandResult, string authKey, DownloadWithJson communication)
         {
             m_GetGamesForPlayerCommandResult = getGamesForPlayerCommandResult;
             m_AuthKey = authKey;
@@ -25,7 +25,7 @@ namespace YAGMRC.Mobile
         #endregion Constructor
 
         private string m_AuthKey;
-        private GetGamesForPlayerCommandResult m_GetGamesForPlayerCommandResult;
+        private YAGMRC.Mobile.Model.GetGamesForPlayer.GetGamesForPlayerCommandResult m_GetGamesForPlayerCommandResult;
         DownloadWithJson m_Communication;
 
         private List<long> GetPlayerIDs()
@@ -50,7 +50,7 @@ namespace YAGMRC.Mobile
         {
             if (!this.CanExecute())
             {
-                this.Result = new GetGamesPlayersCommandResult(new RootObject());
+                this.Result = new GetGamesPlayersCommandResult(new YAGMRC.Mobile.Model.GetGamesAndPlayers.RootObject());
                 return;
             }
 
@@ -62,7 +62,7 @@ namespace YAGMRC.Mobile
             string playerIDText = string.Join("_", playerList);
 
 
-            RootObject ro = await this.m_Communication.Execute<RootObject>("GetGamesAndPlayers?playerIDText=" + playerIDText + "&authKey=" + m_AuthKey);
+            YAGMRC.Mobile.Model.GetGamesAndPlayers.RootObject ro = await this.m_Communication.Execute<YAGMRC.Mobile.Model.GetGamesAndPlayers.RootObject>("GetGamesAndPlayers?playerIDText=" + playerIDText + "&authKey=" + m_AuthKey);
             this.Result = new GetGamesPlayersCommandResult(ro);
         }
 

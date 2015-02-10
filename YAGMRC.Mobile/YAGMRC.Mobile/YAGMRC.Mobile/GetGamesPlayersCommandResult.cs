@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YAGMRC.Mobile.Model.GetGamesForPlayer;
 
 namespace YAGMRC.Mobile
 {
@@ -15,7 +14,7 @@ namespace YAGMRC.Mobile
         {
         }
 
-        public GetGamesPlayersCommandResult(RootObject model)
+        public GetGamesPlayersCommandResult(YAGMRC.Mobile.Model.GetGamesAndPlayers.RootObject model)
         {
             this.Result = model;
             m_HasList = new SortedDictionary<int, string>();
@@ -31,7 +30,7 @@ namespace YAGMRC.Mobile
             }
         }
 
-        public RootObject Result
+        public YAGMRC.Mobile.Model.GetGamesAndPlayers.RootObject Result
         {
             get;
             private set;

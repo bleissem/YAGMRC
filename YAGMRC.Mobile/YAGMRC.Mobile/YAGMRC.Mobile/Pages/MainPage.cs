@@ -42,6 +42,7 @@ namespace YAGMRC.Mobile.Pages
             }
             catch(Exception ex)
             {
+                var stacktrace = ex.StackTrace;
                 int i = 0;
             }
         }
