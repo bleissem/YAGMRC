@@ -29,8 +29,10 @@ namespace YAGMRC.Mobile
             using (HttpClient httpClient = new HttpClient(new MyHttpClientHandler()))
             {
                 Task<string> stringTask = httpClient.GetStringAsync(diplomacyUri);
+                
+                stringTask.Wait();
 
-                string str = await stringTask;
+                string str = stringTask.Result;
                 return JsonConvert.DeserializeObject<T>(str);
             }
         }
