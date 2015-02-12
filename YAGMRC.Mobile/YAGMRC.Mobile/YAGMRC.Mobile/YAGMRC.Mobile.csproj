@@ -45,6 +45,8 @@
     <Compile Include="ICommand.cs" />
     <Compile Include="IResult.cs" />
     <Compile Include="IWebCommunitcation.cs" />
+    <Compile Include="Pages\FirstPage.cs" />
+    <Compile Include="Pages\GamePage.cs" />
     <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Model\GetGamesAndPlayers\CurrentTurn.cs" />
     <Compile Include="Model\GetGamesAndPlayers\Game.cs" />

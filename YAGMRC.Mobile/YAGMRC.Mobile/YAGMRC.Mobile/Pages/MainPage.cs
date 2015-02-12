@@ -17,34 +17,18 @@ namespace YAGMRC.Mobile.Pages
 
             m_GetGamesAndPlayersResult = new GetGamesPlayersCommandResult();
 
-            CallWeb();
+            FirstPage firstPage = new FirstPage();
 
-            this.Children.Add(new ContentPage
-            {
-                Title = "Blue",
-                Content = new BoxView
-                {
-                    Color = Color.Blue,
-                    HeightRequest = 100f,
-                    VerticalOptions = LayoutOptions.Center,
-                },
-            });
+            this.Children.Add(firstPage);
+
+            CallWeb(firstPage);
 
             if (m_GetGamesAndPlayersResult.HasResult)
             {
                 var games = m_GetGamesAndPlayersResult.Result.Games;
                 foreach(var game in games)
                 {
-                    this.Children.Add(new ContentPage
-                    {
-                        Title = game.GameId.ToString(),
-                        Content = new BoxView
-                        {
-                            Color = Color.Blue,
-                            HeightRequest = 100f,
-                            VerticalOptions = LayoutOptions.Center,
-                        },
-                    });
+                    this.Children.Add(new GamePage(game));
                 }
             }
 
@@ -56,12 +40,12 @@ namespace YAGMRC.Mobile.Pages
 
         GetGamesPlayersCommandResult m_GetGamesAndPlayersResult;
 
-        private async void CallWeb()
+        private async void CallWeb(FirstPage firstPage)
         {
             try
             {
                 GiantMultiplayerRobotWebCommunication gmrwc = new GiantMultiplayerRobotWebCommunication();
-                AuthenticateCommandResult authResult = await gmrwc.Authenticate(new AuthenticateCommandParam("LOXQLQ8RIA49"));
+                AuthenticateCommandResult authResult = await gmrwc.Authenticate(new AuthenticateCommandParam(""));
 
                 m_GetGamesAndPlayersResult = gmrwc.GetGamesAndPlayers(authResult.AuthID);
             }
