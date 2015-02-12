@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YAGMRC.Mobile
+namespace YAGMRC.Mobile.Common
 {
     /// <summary>
     /// this is the interface for developing any kind of multiplayer host to store Civ V games

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace YAGMRC.Mobile
+namespace YAGMRC.Mobile.Common
 {
     internal class GetGamesAndPlayersCommand : ICommand, IResult<GetGamesPlayersCommandResult>
     {

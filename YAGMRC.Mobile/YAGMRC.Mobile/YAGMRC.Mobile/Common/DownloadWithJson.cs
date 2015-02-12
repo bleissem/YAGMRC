@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YAGMRC.Mobile
+namespace YAGMRC.Mobile.Common
 {
     internal class DownloadWithJson
     {
@@ -32,7 +32,7 @@ namespace YAGMRC.Mobile
                 
                 stringTask.Wait();
 
-                string str = stringTask.Result;
+                string str = await stringTask;
                 return JsonConvert.DeserializeObject<T>(str);
             }
         }

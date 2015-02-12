@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using YAGMRC.Mobile.Common;
+using YAGMRC.Mobile.ViewModels;
 
 namespace YAGMRC.Mobile.Pages
 {
@@ -13,16 +15,20 @@ namespace YAGMRC.Mobile.Pages
 
         public MainPage()
         {
+
             this.Title = "YAGMRC.Mobile";
 
-            m_GetGamesAndPlayersResult = new GetGamesPlayersCommandResult();
+            DependencyService.Register<MainViewModel>();
+            
+
 
             FirstPage firstPage = new FirstPage();
 
             this.Children.Add(firstPage);
 
-            CallWeb(firstPage);
-
+            MainViewModel mvm = DependencyService.Get<MainViewModel>();
+           
+            /*
             if (m_GetGamesAndPlayersResult.HasResult)
             {
                 var games = m_GetGamesAndPlayersResult.Result.Games;
@@ -32,29 +38,10 @@ namespace YAGMRC.Mobile.Pages
                 }
             }
 
-          
+            */
         }
 
         #endregion
-
-
-        GetGamesPlayersCommandResult m_GetGamesAndPlayersResult;
-
-        private async void CallWeb(FirstPage firstPage)
-        {
-            try
-            {
-                GiantMultiplayerRobotWebCommunication gmrwc = new GiantMultiplayerRobotWebCommunication();
-                AuthenticateCommandResult authResult = await gmrwc.Authenticate(new AuthenticateCommandParam(""));
-
-                m_GetGamesAndPlayersResult = gmrwc.GetGamesAndPlayers(authResult.AuthID);
-            }
-            catch(Exception ex)
-            {
-                var stacktrace = ex.StackTrace;
-                int i = 0;
-            }
-        }
 
     }
 }
