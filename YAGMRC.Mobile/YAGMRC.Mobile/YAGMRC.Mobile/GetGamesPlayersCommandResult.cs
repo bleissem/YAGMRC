@@ -10,7 +10,7 @@ namespace YAGMRC.Mobile
     {
         #region Constructor
 
-        private GetGamesPlayersCommandResult()
+        public GetGamesPlayersCommandResult():this(null)
         {
         }
 
