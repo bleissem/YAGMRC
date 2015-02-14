@@ -7,9 +7,8 @@ using YAGMRC.Mobile.Common;
 
 namespace YAGMRC.Mobile.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : ViewModelBase
     {
-
         #region constructor
 
         public MainViewModel()
@@ -17,11 +16,11 @@ namespace YAGMRC.Mobile.ViewModels
             this.AuthKey = null;
         }
 
-        #endregion
+        #endregion constructor
 
         #region nested classes
 
-        public class Authenticate: ICommand, IResult<GetGamesPlayersCommandResult>
+        public class Authenticate : ICommand, IResult<GetGamesPlayersCommandResult>
         {
             #region constructor
 
@@ -31,7 +30,7 @@ namespace YAGMRC.Mobile.ViewModels
                 this.Result = new GetGamesPlayersCommandResult();
             }
 
-            #endregion
+            #endregion constructor
 
             private string m_AuthKey;
 
@@ -43,6 +42,11 @@ namespace YAGMRC.Mobile.ViewModels
 
             public async void Execute()
             {
+                if (!CanExecute())
+                {
+                    return;
+                };
+
                 GiantMultiplayerRobotWebCommunication gmrwc = new GiantMultiplayerRobotWebCommunication();
                 AuthenticateCommandResult authResult = await gmrwc.Authenticate(new AuthenticateCommandParam(m_AuthKey));
 
@@ -55,12 +59,21 @@ namespace YAGMRC.Mobile.ViewModels
             }
         }
 
-        #endregion
+        #endregion nested classes
+
+        private string _AuthKey;
 
         public string AuthKey
         {
-            get;
-            set;
+            get
+            {
+                return _AuthKey;
+            }
+            set
+            {
+                _AuthKey = value;
+                base.OnPropertyChanged(() => this.AuthKey);
+            }
         }
 
         public Authenticate AuthenticateCommand

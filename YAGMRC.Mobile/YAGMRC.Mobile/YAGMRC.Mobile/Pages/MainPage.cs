@@ -17,6 +17,7 @@ namespace YAGMRC.Mobile.Pages
         {
 
             this.Title = "YAGMRC.Mobile";
+            this.Padding = new Thickness(0, 20, 0, 0);
 
             DependencyService.Register<MainViewModel>();
             
