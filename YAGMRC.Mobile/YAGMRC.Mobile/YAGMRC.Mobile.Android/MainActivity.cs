@@ -8,6 +8,8 @@ using Android.Widget;
 using Android.OS;
 
 using Xamarin.Forms.Platform.Android;
+using SQLite.Net;
+using SQLite.Net.Platform.XamarinAndroid;
 
 namespace YAGMRC.Mobile.Droid
 {
@@ -19,8 +21,11 @@ namespace YAGMRC.Mobile.Droid
             base.OnCreate(bundle);
 
             Xamarin.Forms.Forms.Init(this, bundle);
+            
+            string dbPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "YAGMRC.Mobile.db3");
 
-            LoadApplication(new App());
+            LoadApplication(new App(dbPath, new SQLitePlatformAndroid()));
+
         }
     }
 }

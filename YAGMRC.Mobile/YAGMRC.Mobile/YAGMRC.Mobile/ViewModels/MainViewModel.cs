@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,13 @@ namespace YAGMRC.Mobile.ViewModels
     {
         #region constructor
 
-        public MainViewModel()
+        public MainViewModel(Settings settings)
         {
-            this.AuthKey = null;
+            m_Settings = settings;
+
+            
         }
+
 
         #endregion constructor
 
@@ -61,18 +65,20 @@ namespace YAGMRC.Mobile.ViewModels
 
         #endregion nested classes
 
-        private string _AuthKey;
+        private Settings m_Settings;
+
+        
 
         public string AuthKey
         {
             get
             {
-                return _AuthKey;
+                return m_Settings.Auth;
             }
             set
             {
-                _AuthKey = value;
-                base.OnPropertyChanged(() => this.AuthKey);
+                m_Settings.Auth = value;
+                base.RaisePropertyChanged(() => this.AuthKey);
             }
         }
 

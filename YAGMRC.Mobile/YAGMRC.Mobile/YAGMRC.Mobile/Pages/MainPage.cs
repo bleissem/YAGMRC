@@ -18,16 +18,16 @@ namespace YAGMRC.Mobile.Pages
 
             this.Title = "YAGMRC.Mobile";
             this.Padding = new Thickness(0, 20, 0, 0);
-
-            DependencyService.Register<MainViewModel>();
             
-
+           
 
             FirstPage firstPage = new FirstPage();
 
             this.Children.Add(firstPage);
 
-            MainViewModel mvm = DependencyService.Get<MainViewModel>();
+            
+
+            MainViewModel mvm = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<MainViewModel>();
            
             /*
             if (m_GetGamesAndPlayersResult.HasResult)

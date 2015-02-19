@@ -14,12 +14,10 @@ namespace YAGMRC.Mobile.Pages
 
         public FirstPage()
         {
-            m_MainViewModel = DependencyService.Get<MainViewModel>();
+            m_MainViewModel = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<MainViewModel>();
 
             this.Title = "YAGMRC.Mobile";
-
-            
-
+           
             EntryCell ec = new EntryCell();
             ec.Label = "ID:";
             //ec.Placeholder = "Type Text Here";
@@ -70,6 +68,6 @@ namespace YAGMRC.Mobile.Pages
 
 
 
-        MainViewModel m_MainViewModel;
+        private MainViewModel m_MainViewModel;
     }
 }

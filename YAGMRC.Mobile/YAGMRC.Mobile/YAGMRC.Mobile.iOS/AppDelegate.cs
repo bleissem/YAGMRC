@@ -7,6 +7,7 @@ using MonoTouch.UIKit;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using SQLite.Net.Platform.XamarinIOS;
 
 namespace YAGMRC.Mobile.iOS
 {
@@ -32,7 +33,7 @@ namespace YAGMRC.Mobile.iOS
 
             window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-            LoadApplication(new App());
+            LoadApplication(new App("YAGMRC.Mobile.db3", new SQLitePlatformIOS()));
 
             return base.FinishedLaunching(app, options);
         }
