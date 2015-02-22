@@ -25,7 +25,7 @@ namespace YAGMRC.Mobile.Droid
             string dbPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "YAGMRC.Mobile.db3");
 
             LoadApplication(new App(dbPath, new SQLitePlatformAndroid()));
-
+            
         }
     }
 }

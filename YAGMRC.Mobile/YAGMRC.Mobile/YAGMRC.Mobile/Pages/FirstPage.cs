@@ -55,13 +55,8 @@ namespace YAGMRC.Mobile.Pages
         void loadButton_Clicked(object sender, System.EventArgs e)
         {
             var cmd = m_MainViewModel.AuthenticateCommand;
-            cmd.Execute();
-
-            if (cmd.Result.HasResult)
-            {
-                //TODO: continue with loading game pages 
-                int i = 0;
-            }
+            cmd.Execute(m_MainViewModel.AuthKey);
+          
         }
 
         #endregion constructor

@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,7 @@ namespace YAGMRC.Mobile.ViewModels
         public MainViewModel(Settings settings)
         {
             m_Settings = settings;
-
-            
+            this.GameViewModels = new ObservableCollection<GameViewModel>();
         }
 
 
@@ -24,19 +24,27 @@ namespace YAGMRC.Mobile.ViewModels
 
         #region nested classes
 
-        public class Authenticate : ICommand, IResult<GetGamesPlayersCommandResult>
+        public class Authenticate : ICommand<string>, IResult<GetGamesPlayersCommandResult>
         {
             #region constructor
 
-            public Authenticate(string authKey)
+            private Authenticate()
             {
-                this.m_AuthKey = authKey;
+
+            }
+
+            public Authenticate(Action<GetGamesPlayersCommandResult> onExecuted)
+            {
+              
                 this.Result = new GetGamesPlayersCommandResult();
+                m_OnExecuted = onExecuted;
             }
 
             #endregion constructor
 
             private string m_AuthKey;
+
+            private Action<GetGamesPlayersCommandResult> m_OnExecuted;
 
             public GetGamesPlayersCommandResult Result
             {
@@ -44,8 +52,11 @@ namespace YAGMRC.Mobile.ViewModels
                 private set;
             }
 
-            public async void Execute()
+
+            public async void Execute(string parameter)
             {
+                this.m_AuthKey = parameter;
+
                 if (!CanExecute())
                 {
                     return;
@@ -55,12 +66,15 @@ namespace YAGMRC.Mobile.ViewModels
                 AuthenticateCommandResult authResult = await gmrwc.Authenticate(new AuthenticateCommandParam(m_AuthKey));
 
                 this.Result = gmrwc.GetGamesAndPlayers(authResult.AuthID);
+                m_OnExecuted(this.Result);
             }
+
 
             public bool CanExecute()
             {
                 return !string.IsNullOrWhiteSpace(m_AuthKey);
             }
+
         }
 
         #endregion nested classes
@@ -68,7 +82,6 @@ namespace YAGMRC.Mobile.ViewModels
         private Settings m_Settings;
 
         
-
         public string AuthKey
         {
             get
@@ -77,17 +90,73 @@ namespace YAGMRC.Mobile.ViewModels
             }
             set
             {
-                m_Settings.Auth = value;
+                if (m_Settings.Auth == value)
+                {
+                    return;
+                }
+
+
+                m_Settings.Auth = value;                
                 base.RaisePropertyChanged(() => this.AuthKey);
             }
         }
+
+        private Authenticate m_Authenticate;
 
         public Authenticate AuthenticateCommand
         {
             get
             {
-                return new Authenticate(this.AuthKey);
+                if (null == m_Authenticate)
+                {
+                    m_Authenticate = new Authenticate(
+                        (GetGamesPlayersCommandResult onExecuted)=>
+                        {
+                            if (!onExecuted.HasResult)
+                            {
+                                return;
+                            }
+
+                            var result = onExecuted.Result;
+                            this.TotalPoints = result.CurrentTotalPoints;
+
+                            List<GameViewModel> listGames = new List<GameViewModel>();
+
+                            foreach (var game in result.Games)
+                            {
+                                listGames.Add(new GameViewModel(game));
+                            }
+
+                            this.GameViewModels = new ObservableCollection<GameViewModel>(listGames);
+                        }
+                        );
+                }
+                return m_Authenticate;
             }
+        }
+
+        private int m_TotalPoints;
+        public int TotalPoints
+        {
+            get
+            {
+                return m_TotalPoints;
+            }
+            set
+            {
+                if (m_TotalPoints == value)
+                {
+                    return;
+                }
+                m_TotalPoints = value;
+                base.RaisePropertyChanged(() => this.TotalPoints);
+            }
+        }
+
+        public ObservableCollection<GameViewModel> GameViewModels
+        {
+            get;
+            set;
         }
     }
 }
