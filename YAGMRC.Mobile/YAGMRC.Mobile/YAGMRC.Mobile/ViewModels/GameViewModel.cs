@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace YAGMRC.Mobile.ViewModels
 {
-    public class GameViewModel
+    public class GameViewModel: ViewModelBase
     {
 
         #region constructor
@@ -24,6 +25,19 @@ namespace YAGMRC.Mobile.ViewModels
         #endregion
 
         private Model.GetGamesAndPlayers.Game m_Game;
+
+        public override string ToString()
+        {
+            return m_Game.Name;
+        }
+
+        public int GameID
+        {
+            get
+            {
+                return m_Game.GameId;
+            }
+        }
 
     }
 }

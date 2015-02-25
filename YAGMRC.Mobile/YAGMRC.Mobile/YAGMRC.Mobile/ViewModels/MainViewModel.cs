@@ -122,12 +122,13 @@ namespace YAGMRC.Mobile.ViewModels
 
                             List<GameViewModel> listGames = new List<GameViewModel>();
 
+                            this.GameViewModels.Clear();
+
                             foreach (var game in result.Games)
                             {
-                                listGames.Add(new GameViewModel(game));
+                                this.GameViewModels.Add(new GameViewModel(game));
                             }
-
-                            this.GameViewModels = new ObservableCollection<GameViewModel>(listGames);
+                            
                         }
                         );
                 }

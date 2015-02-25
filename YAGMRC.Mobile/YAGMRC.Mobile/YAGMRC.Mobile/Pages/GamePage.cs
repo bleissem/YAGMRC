@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using YAGMRC.Mobile.ViewModels;
 
 namespace YAGMRC.Mobile.Pages
 {
@@ -16,10 +17,10 @@ namespace YAGMRC.Mobile.Pages
 
         }
 
-        public GamePage(Model.GetGamesAndPlayers.Game game)
+        public GamePage(GameViewModel gameViewModel)
         {
-
-            Title = game.GameId.ToString();
+            m_GameViewModel = gameViewModel;
+            Title = m_GameViewModel.GameID.ToString();
             
             Content = new BoxView            
             {
@@ -35,5 +36,7 @@ namespace YAGMRC.Mobile.Pages
         }
 
         #endregion
+
+        private GameViewModel m_GameViewModel;
     }
 }
