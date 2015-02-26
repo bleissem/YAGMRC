@@ -46,7 +46,7 @@
     <Compile Include="Common\IResult.cs" />
     <Compile Include="Common\IWebCommunitcation.cs" />
     <Compile Include="Model\Tables.cs" />
-    <Compile Include="Pages\FirstPage.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\GamePage.cs" />
     <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Model\GetGamesAndPlayers\CurrentTurn.cs" />

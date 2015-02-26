@@ -15,10 +15,11 @@ namespace YAGMRC.Mobile.Pages
 
         public MainPage()
         {
-            MainViewModel mvm = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<MainViewModel>();
 
-            string title = "YAGMRC.Mobile";
-            Label header = new Label
+            m_MainViewModel = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<MainViewModel>();
+
+            string title = "Home";
+            Button header = new Button()
             {
                 Text = title,
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
@@ -26,15 +27,18 @@ namespace YAGMRC.Mobile.Pages
                 HorizontalOptions = LayoutOptions.Center
             };
 
+           
+
             this.Title = title;
             this.Padding = new Thickness(0, 20, 0, 0);
 
                         
-            ListView listView = new ListView
+            ListView listViewAllGames = new ListView
             {
-                ItemsSource = mvm.GameViewModels
-            };         
-            
+                ItemsSource = m_MainViewModel.GameViewModels
+            };
+
+
             this.Master = new ContentPage
             {
                 Title = title,
@@ -43,16 +47,23 @@ namespace YAGMRC.Mobile.Pages
                     Children =
                     {
                         header,
-                        listView
+                        listViewAllGames
                     }
 
                 }
             };
 
-            FirstPage firstPage = new FirstPage();
+            LoginPage loginPage = new LoginPage();
 
            
-            this.Detail = firstPage;
+            this.Detail = loginPage;
+
+
+            header.Clicked += (object sender, EventArgs e) =>
+            {
+                this.Detail = loginPage;
+            };
+
             // For Android & Windows Phone, provide a way to get back to the master page.
             if (Device.OS != TargetPlatform.iOS)
             {
@@ -61,11 +72,11 @@ namespace YAGMRC.Mobile.Pages
                 {
                     this.IsPresented = true;
                 };
-                firstPage.Content.BackgroundColor = Color.Transparent;
-                firstPage.Content.GestureRecognizers.Add(tap);
+                loginPage.Content.BackgroundColor = Color.Transparent;
+                loginPage.Content.GestureRecognizers.Add(tap);
             }
             // Define a selected handler for the ListView.
-            listView.ItemSelected += (sender, args) =>
+            listViewAllGames.ItemSelected += (sender, args) =>
             {
                 /*
                 // Set the BindingContext of the detail page.
@@ -87,5 +98,7 @@ namespace YAGMRC.Mobile.Pages
 
         #endregion
 
+
+        MainViewModel m_MainViewModel;
     }
 }

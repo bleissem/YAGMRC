@@ -17,6 +17,7 @@ namespace YAGMRC.Mobile.ViewModels
         {
             m_Settings = settings;
             this.GameViewModels = new ObservableCollection<GameViewModel>();
+            this.MyTurnsGameViewModels = new ObservableCollection<GameViewModel>();
         }
 
 
@@ -33,7 +34,7 @@ namespace YAGMRC.Mobile.ViewModels
 
             }
 
-            public Authenticate(Action<GetGamesPlayersCommandResult> onExecuted)
+            public Authenticate(Action<GetGamesPlayersCommandResult, AuthenticateCommandResult> onExecuted)
             {
               
                 this.Result = new GetGamesPlayersCommandResult();
@@ -44,7 +45,7 @@ namespace YAGMRC.Mobile.ViewModels
 
             private string m_AuthKey;
 
-            private Action<GetGamesPlayersCommandResult> m_OnExecuted;
+            private Action<GetGamesPlayersCommandResult, AuthenticateCommandResult> m_OnExecuted;
 
             public GetGamesPlayersCommandResult Result
             {
@@ -66,7 +67,7 @@ namespace YAGMRC.Mobile.ViewModels
                 AuthenticateCommandResult authResult = await gmrwc.Authenticate(new AuthenticateCommandParam(m_AuthKey));
 
                 this.Result = gmrwc.GetGamesAndPlayers(authResult.AuthID);
-                m_OnExecuted(this.Result);
+                m_OnExecuted(this.Result, authResult);
             }
 
 
@@ -110,9 +111,9 @@ namespace YAGMRC.Mobile.ViewModels
                 if (null == m_Authenticate)
                 {
                     m_Authenticate = new Authenticate(
-                        (GetGamesPlayersCommandResult onExecuted)=>
+                        (GetGamesPlayersCommandResult onExecuted, AuthenticateCommandResult authResult)=>
                         {
-                            if (!onExecuted.HasResult)
+                            if ( (!onExecuted.HasResult) || (!authResult.Authenticated))
                             {
                                 return;
                             }
@@ -123,10 +124,19 @@ namespace YAGMRC.Mobile.ViewModels
                             List<GameViewModel> listGames = new List<GameViewModel>();
 
                             this.GameViewModels.Clear();
+                            this.MyTurnsGameViewModels.Clear();
 
+                            bool isMyTurn = false;
                             foreach (var game in result.Games)
                             {
-                                this.GameViewModels.Add(new GameViewModel(game));
+                                isMyTurn = ( (null != game.CurrentTurn) && (Convert.ToInt64(game.CurrentTurn.UserId) == authResult.PlayerID));
+
+                                GameViewModel gvm = new GameViewModel(game);
+                                if (isMyTurn)
+                                {
+                                    this.MyTurnsGameViewModels.Add(gvm);
+                                }
+                                this.GameViewModels.Add(gvm);
                             }
                             
                         }
@@ -155,6 +165,12 @@ namespace YAGMRC.Mobile.ViewModels
         }
 
         public ObservableCollection<GameViewModel> GameViewModels
+        {
+            get;
+            set;
+        }
+
+        public ObservableCollection<GameViewModel> MyTurnsGameViewModels
         {
             get;
             set;

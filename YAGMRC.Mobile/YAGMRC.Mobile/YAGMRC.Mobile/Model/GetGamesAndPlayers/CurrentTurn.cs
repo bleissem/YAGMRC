@@ -14,9 +14,9 @@ namespace YAGMRC.Mobile.Model.GetGamesAndPlayers
 
         public object UserId { get; set; }
 
-        public string Started { get; set; }
+        public DateTime Started { get; set; }
 
-        public string Expires { get; set; }
+        public DateTime? Expires { get; set; }
 
         public bool Skipped { get; set; }
 
