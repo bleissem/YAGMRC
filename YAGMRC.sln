@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAGMRC.Core", "YAGMRC.Core\YAGMRC.Core.csproj", "{B334D7C4-5BA4-4033-BB91-AAE7072387F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAGMRC", "YAGMRC\YAGMRC.csproj", "{800AE26A-2AB2-4DB0-97E5-97655FB5D6D0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1F54593F-3269-457D-917C-0DF0038E7FE8} = {1F54593F-3269-457D-917C-0DF0038E7FE8}
+		{CEB85ED2-FED2-47F2-AD48-A29748480E90} = {CEB85ED2-FED2-47F2-AD48-A29748480E90}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAGMRC.UnitTest", "YAGMRC.UnitTest\YAGMRC.UnitTest.csproj", "{41FE1DAD-0CEC-40B6-8D87-3BEA87D17375}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAGMRC.GMR.Core", "YAGMRC.GMR.Core\YAGMRC.GMR.Core.csproj", "{1F54593F-3269-457D-917C-0DF0038E7FE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAGMRC.Common", "YAGMRC.Common\YAGMRC.Common.csproj", "{CEB85ED2-FED2-47F2-AD48-A29748480E90}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs12
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = YAGMRC.Core\\YAGMRC.Core.csproj
+		SccProjectName1 = YAGMRC.Core
+		SccLocalPath1 = YAGMRC.Core
+		SccProjectUniqueName2 = YAGMRC\\YAGMRC.csproj
+		SccProjectName2 = YAGMRC
+		SccLocalPath2 = YAGMRC
+		SccProjectUniqueName3 = YAGMRC.UnitTest\\YAGMRC.UnitTest.csproj
+		SccProjectName3 = YAGMRC.UnitTest
+		SccLocalPath3 = YAGMRC.UnitTest
+		SccProjectUniqueName4 = YAGMRC.GMR.Core\\YAGMRC.GMR.Core.csproj
+		SccProjectName4 = YAGMRC.GMR.Core
+		SccLocalPath4 = YAGMRC.GMR.Core
+		SccProjectUniqueName5 = YAGMRC.Common\\YAGMRC.Common.csproj
+		SccProjectName5 = YAGMRC.Common
+		SccLocalPath5 = YAGMRC.Common
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B334D7C4-5BA4-4033-BB91-AAE7072387F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B334D7C4-5BA4-4033-BB91-AAE7072387F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B334D7C4-5BA4-4033-BB91-AAE7072387F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B334D7C4-5BA4-4033-BB91-AAE7072387F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{800AE26A-2AB2-4DB0-97E5-97655FB5D6D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{800AE26A-2AB2-4DB0-97E5-97655FB5D6D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{800AE26A-2AB2-4DB0-97E5-97655FB5D6D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{800AE26A-2AB2-4DB0-97E5-97655FB5D6D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41FE1DAD-0CEC-40B6-8D87-3BEA87D17375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41FE1DAD-0CEC-40B6-8D87-3BEA87D17375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41FE1DAD-0CEC-40B6-8D87-3BEA87D17375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41FE1DAD-0CEC-40B6-8D87-3BEA87D17375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F54593F-3269-457D-917C-0DF0038E7FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F54593F-3269-457D-917C-0DF0038E7FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F54593F-3269-457D-917C-0DF0038E7FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F54593F-3269-457D-917C-0DF0038E7FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB85ED2-FED2-47F2-AD48-A29748480E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB85ED2-FED2-47F2-AD48-A29748480E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB85ED2-FED2-47F2-AD48-A29748480E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB85ED2-FED2-47F2-AD48-A29748480E90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
