@@ -43,6 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Constants.cs" />
+    <Compile Include="Model\CurrentTurn.cs" />
+    <Compile Include="Model\Game.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Players.cs" />
+    <Compile Include="Model\Turn.cs" />
     <Compile Include="Model\SQL\GameDB\CurrentTurnTable.cs" />
     <Compile Include="Model\SQL\GameDB\GameTable.cs" />
     <Compile Include="Model\SQL\GameDB\PlayersTable.cs" />
