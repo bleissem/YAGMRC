@@ -1,2 +1,2 @@
 # YAGMRC
-Yet Another Giant Multiplayer Robot Client (mobile Edition)
+Yet Another Giant Multiplayer Robot Client
