@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace YAGMRC.Create.Game.Model
 {
@@ -23,8 +20,7 @@ namespace YAGMRC.Create.Game.Model
             this.Name = name;
         }
 
-        #endregion
-
+        #endregion constructor
 
         public string Name { get; set; }
 
@@ -37,6 +33,7 @@ namespace YAGMRC.Create.Game.Model
         }
 
         private Guid m_ID;
+
         public Guid ID
         {
             get
@@ -54,6 +51,7 @@ namespace YAGMRC.Create.Game.Model
         }
 
         private Turn m_Turn;
+
         public Turn Turn
         {
             get
@@ -61,6 +59,5 @@ namespace YAGMRC.Create.Game.Model
                 return m_Turn;
             }
         }
-
     }
 }

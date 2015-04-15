@@ -5,25 +5,19 @@ using Google.Apis.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace YAGMRC.Create.Google
+namespace YAGMRC.Create.GoogleStorage
 {
     public class GoogleService
     {
-
         #region constructor
 
         public GoogleService()
         {
-
         }
 
-        #endregion
-
+        #endregion constructor
 
         private static GoogleService m_GoogleService;
 
@@ -36,7 +30,6 @@ namespace YAGMRC.Create.Google
 
             return m_GoogleService;
         }
-
 
         private DriveService Authenticate(string user)
         {
@@ -56,14 +49,11 @@ namespace YAGMRC.Create.Google
             usercredentialstask.Wait();
             var usercredentialsresult = usercredentialstask.Result;
 
-
-
             return new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = usercredentialsresult,
                 ApplicationName = "YAGMRC",
             });
-
         }
 
         private const string GoogleSecrectsFile = "googlesecrets.json";
@@ -86,8 +76,7 @@ namespace YAGMRC.Create.Google
 
         public DriveService Service(string user)
         {
-            return  this.Authenticate(user);
+            return this.Authenticate(user);
         }
-
     }
 }
