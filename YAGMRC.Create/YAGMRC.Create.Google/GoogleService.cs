@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-namespace YAGMRC.Create.GoogleStorage
+namespace YAGMRC.GoogleStorage
 {
     public class GoogleService
     {

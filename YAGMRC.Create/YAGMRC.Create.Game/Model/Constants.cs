@@ -1,4 +1,4 @@
-﻿namespace YAGMRC.Create.Game.Model
+﻿namespace YAGMRC.Game.Model
 {
     public enum GameType
     {

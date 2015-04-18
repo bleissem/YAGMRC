@@ -7,8 +7,8 @@
     <ProjectGuid>{FC769BCB-EBAE-4089-AA32-3211DF79ABEC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YAGMRC.Create.GoogleStorage</RootNamespace>
-    <AssemblyName>YAGMRC.Create.GoogleStorage</AssemblyName>
+    <RootNamespace>YAGMRC.GoogleStorage</RootNamespace>
+    <AssemblyName>YAGMRC.GoogleStorage</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -96,9 +96,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YAGMRC.Create.Game\YAGMRC.Create.Game.csproj">
+    <ProjectReference Include="..\YAGMRC.Create.Game\YAGMRC.Game.csproj">
       <Project>{3cf1cac0-9a03-4916-9e2d-ad4668965663}</Project>
-      <Name>YAGMRC.Create.Game</Name>
+      <Name>YAGMRC.Game</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

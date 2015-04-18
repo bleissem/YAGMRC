@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YAGMRC.Create.Game.Model
+namespace YAGMRC.Game.Model
 {
     public class Player
     {

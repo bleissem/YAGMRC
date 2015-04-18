@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace YAGMRC.Create.Game.Model
+namespace YAGMRC.Game.Model
 {
     public class Game
     {

@@ -1,7 +1,7 @@
 ﻿using SQLite.Net.Attributes;
 using System;
 
-namespace YAGMRC.Create.Game.Model.SQL.GameDB
+namespace YAGMRC.Game.Model.SQL.GameDB
 {
     [Table("Game")]
     public class GameTable

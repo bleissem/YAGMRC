@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 
-namespace YAGMRC.Create.GoogleStorage
+namespace YAGMRC.GoogleStorage
 {
     public class CreateGameAtGoogle
     {
@@ -14,7 +14,7 @@ namespace YAGMRC.Create.GoogleStorage
 
         #endregion constructor
 
-        public YAGMRC.Create.GoogleStorage.GoogleStorage.GoogleStorageResult Execute(string user, YAGMRC.Create.Game.Model.Game game, FileInfo dbFile, FileInfo savedGame)
+        public YAGMRC.GoogleStorage.GoogleStorage.GoogleStorageResult Execute(string user, YAGMRC.Game.Model.Game game, FileInfo dbFile, FileInfo savedGame)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace YAGMRC.Create.GoogleStorage
 
                 string savedGameFileAtGoogleID = storage.ShareFileOrFolder(savedGameFileAtGoogle);
 
-                return new YAGMRC.Create.GoogleStorage.GoogleStorage.GoogleStorageResult() { DatabaseFileID = dbFileAtGoogleID, GameFileID = savedGameFileAtGoogleID };
+                return new YAGMRC.GoogleStorage.GoogleStorage.GoogleStorageResult() { DatabaseFileID = dbFileAtGoogleID, GameFileID = savedGameFileAtGoogleID };
             }
             catch (Exception e)
             {

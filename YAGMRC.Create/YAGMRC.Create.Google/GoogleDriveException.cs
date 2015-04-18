@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YAGMRC.Create.GoogleStorage
+namespace YAGMRC.GoogleStorage
 {
     public class GoogleDriveException : Exception
     {

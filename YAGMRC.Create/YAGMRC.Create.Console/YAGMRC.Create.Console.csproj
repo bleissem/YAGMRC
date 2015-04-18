@@ -98,13 +98,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YAGMRC.Create.Game\YAGMRC.Create.Game.csproj">
+    <ProjectReference Include="..\YAGMRC.Create.Game\YAGMRC.Game.csproj">
       <Project>{3cf1cac0-9a03-4916-9e2d-ad4668965663}</Project>
-      <Name>YAGMRC.Create.Game</Name>
+      <Name>YAGMRC.Game</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YAGMRC.Create.Google\YAGMRC.Create.GoogleStorage.csproj">
+    <ProjectReference Include="..\YAGMRC.Create.Google\YAGMRC.GoogleStorage.csproj">
       <Project>{fc769bcb-ebae-4089-aa32-3211df79abec}</Project>
-      <Name>YAGMRC.Create.GoogleStorage</Name>
+      <Name>YAGMRC.GoogleStorage</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
