@@ -16,7 +16,7 @@ namespace YAGMRC.Core.ViewModel
 
         public CreateGameViewModel(IStorage storage)
         {
-             m_Execute = new RelayCommand<CreateGameParam>((createGame)=>storage.Upload(createGame.Game, createGame.DBFile, createGame.SavedGame));            
+            m_Execute = new RelayCommand<CreateGameParam>((createGame) => storage.Upload(createGame.Game, CreateGame(createGame.Game), createGame.SavedGame));            
         }
 
         #endregion
@@ -26,7 +26,6 @@ namespace YAGMRC.Core.ViewModel
         public class CreateGameParam
         {
             public Game Game { get; set; }
-            public FileInfo DBFile { get; set; }
             public FileInfo SavedGame { get; set; }
         }
 
@@ -39,6 +38,11 @@ namespace YAGMRC.Core.ViewModel
         }
 
         #endregion
+
+        private FileInfo CreateGame(Game game)
+        {
+            throw new NotImplementedException();
+        }
 
         private RelayCommand<CreateGameParam> m_Execute;
         public RelayCommand<CreateGameParam> Execute
