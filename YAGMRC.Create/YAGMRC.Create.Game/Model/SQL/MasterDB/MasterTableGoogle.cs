@@ -1,7 +1,7 @@
 ﻿using SQLite.Net.Attributes;
 using System;
 
-namespace YAGMRC.Game.Model.SQL.MasterDB
+namespace YAGMRC.Core.Model.SQL.MasterDB
 {
     [Table("MasterTableGoogle")]
     public class MasterTableGoogle

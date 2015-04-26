@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YAGMRC.Create.Game.Common;
+using YAGMRC.Core.Common;
 
-namespace YAGMRC.Create.Game.ViewModel
+namespace YAGMRC.Core.ViewModel
 {
     public class MainViewModel: GalaSoft.MvvmLight.ViewModelBase
     {

@@ -1,4 +1,4 @@
-﻿namespace YAGMRC.Game.Model
+﻿namespace YAGMRC.Core.Model
 {
     public class Turn
     {

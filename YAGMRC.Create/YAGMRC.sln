@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAGMRC.Create.Console", "YA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAGMRC.GoogleStorage", "YAGMRC.Create.Google\YAGMRC.GoogleStorage.csproj", "{FC769BCB-EBAE-4089-AA32-3211DF79ABEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAGMRC.Game", "YAGMRC.Create.Game\YAGMRC.Game.csproj", "{3CF1CAC0-9A03-4916-9E2D-AD4668965663}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAGMRC.Core", "YAGMRC.Create.Game\YAGMRC.Core.csproj", "{3CF1CAC0-9A03-4916-9E2D-AD4668965663}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

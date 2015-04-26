@@ -1,5 +1,5 @@
 ﻿using System;
-using YAGMRC.Create.Game.ViewModel;
+using YAGMRC.Core.ViewModel;
 using YAGMRC.GoogleStorage;
 
 namespace YAGMRC.Create.ConsoleApp
@@ -15,9 +15,15 @@ namespace YAGMRC.Create.ConsoleApp
             var service = GoogleService.GetInstance().Service(name);
 
 
-            GoogleDrive googleDrive = new GoogleDrive(name);
+            GoogleDriveStorage googleDriveStorage = new GoogleDriveStorage(name);
 
-            MainViewModel mvm = new MainViewModel(googleDrive);
+            MainViewModel mvm = new MainViewModel(googleDriveStorage);
+
+            //mvm.CreateGame.Execute.Execute(new CreateGameViewModel.CreateGameParam()
+            //    {
+                     
+
+            //    });
         }
     }
 }

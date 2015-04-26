@@ -14,7 +14,7 @@ namespace YAGMRC.GoogleStorage
 
         #endregion constructor
 
-        public YAGMRC.GoogleStorage.GoogleDrive.GoogleStorageResult Execute(string user, YAGMRC.Game.Model.Game game, FileInfo dbFile, FileInfo savedGame)
+        public YAGMRC.GoogleStorage.GoogleDrive.GoogleStorageResult Execute(string user, YAGMRC.Core.Model.Game game, FileInfo dbFile, FileInfo savedGame)
         {
             try
             {

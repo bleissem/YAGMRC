@@ -118,9 +118,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YAGMRC.Create.Game\YAGMRC.Game.csproj">
+    <ProjectReference Include="..\YAGMRC.Create.Game\YAGMRC.Core.csproj">
       <Project>{3cf1cac0-9a03-4916-9e2d-ad4668965663}</Project>
-      <Name>YAGMRC.Game</Name>
+      <Name>YAGMRC.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\YAGMRC.Create.Google\YAGMRC.GoogleStorage.csproj">
       <Project>{fc769bcb-ebae-4089-aa32-3211df79abec}</Project>

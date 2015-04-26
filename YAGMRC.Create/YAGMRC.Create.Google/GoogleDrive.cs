@@ -3,11 +3,10 @@ using Google.Apis.Drive.v2.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using YAGMRC.Create.Game.Common;
-
+using YAGMRC.Core.Common;
 namespace YAGMRC.GoogleStorage
 {
-    public class GoogleDrive: IStorage
+    public class GoogleDrive
     {
         #region constructor
 
@@ -111,4 +110,5 @@ namespace YAGMRC.GoogleStorage
             }
         }
     }
+
 }

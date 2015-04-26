@@ -107,6 +107,7 @@
   <ItemGroup>
     <Compile Include="CreateGameAtGoogle.cs" />
     <Compile Include="GoogleDriveException.cs" />
+    <Compile Include="GoogleDriveStorage.cs" />
     <Compile Include="GoogleService.cs" />
     <Compile Include="GoogleDrive.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,9 +117,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YAGMRC.Create.Game\YAGMRC.Game.csproj">
+    <ProjectReference Include="..\YAGMRC.Create.Game\YAGMRC.Core.csproj">
       <Project>{3cf1cac0-9a03-4916-9e2d-ad4668965663}</Project>
-      <Name>YAGMRC.Game</Name>
+      <Name>YAGMRC.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
