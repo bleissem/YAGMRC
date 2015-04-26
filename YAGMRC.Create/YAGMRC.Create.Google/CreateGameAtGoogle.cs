@@ -14,13 +14,13 @@ namespace YAGMRC.GoogleStorage
 
         #endregion constructor
 
-        public YAGMRC.GoogleStorage.GoogleStorage.GoogleStorageResult Execute(string user, YAGMRC.Game.Model.Game game, FileInfo dbFile, FileInfo savedGame)
+        public YAGMRC.GoogleStorage.GoogleDrive.GoogleStorageResult Execute(string user, YAGMRC.Game.Model.Game game, FileInfo dbFile, FileInfo savedGame)
         {
             try
             {
                 Trace.TraceInformation("Uploading to google");
 
-                GoogleStorage storage = new GoogleStorage(user);
+                GoogleDrive storage = new GoogleDrive(user);
 
                 var rootFolder = storage.GetRootFolder();
 
@@ -34,7 +34,7 @@ namespace YAGMRC.GoogleStorage
 
                 string savedGameFileAtGoogleID = storage.ShareFileOrFolder(savedGameFileAtGoogle);
 
-                return new YAGMRC.GoogleStorage.GoogleStorage.GoogleStorageResult() { DatabaseFileID = dbFileAtGoogleID, GameFileID = savedGameFileAtGoogleID };
+                return new YAGMRC.GoogleStorage.GoogleDrive.GoogleStorageResult() { DatabaseFileID = dbFileAtGoogleID, GameFileID = savedGameFileAtGoogleID };
             }
             catch (Exception e)
             {

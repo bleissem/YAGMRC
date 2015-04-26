@@ -3,14 +3,15 @@ using Google.Apis.Drive.v2.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using YAGMRC.Create.Game.Common;
 
 namespace YAGMRC.GoogleStorage
 {
-    public class GoogleStorage
+    public class GoogleDrive: IStorage
     {
         #region constructor
 
-        public GoogleStorage(string user)
+        public GoogleDrive(string user)
         {
             m_User = user;
         }
