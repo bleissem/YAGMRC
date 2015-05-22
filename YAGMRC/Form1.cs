@@ -21,7 +21,7 @@ namespace YAGMRC
             m_MyTraceListener = new MyTraceListener(WriteTrace, WriteTraceLine);
             Trace.Listeners.Add(m_MyTraceListener);
 
-            m_SettingsForm = new SettingsForm();
+            m_SettingsForm = new SettingsFormGMR();
             m_MainViewModel = new MainViewModel();
             m_Config = new MyConfig();
 
@@ -31,7 +31,7 @@ namespace YAGMRC
         private MainViewModel m_MainViewModel;
         private MyConfig m_Config;
         private MyTraceListener m_MyTraceListener;
-        private SettingsForm m_SettingsForm;
+        private SettingsFormGMR m_SettingsForm;
 
         private void WriteTrace(string message)
         {
@@ -187,7 +187,7 @@ namespace YAGMRC
                         Trace.WriteLine("uploading (takes a while)");
                         SubmitTurnCommand submitTurncmd = this.m_MainViewModel.GMRMainViewModel.SubmitTurn;
 
-                        submitTurncmd.Execute(new SubmitTurnCommandParam(guiGame.Game.GameId, m_Config.DoArchiveGameFiles, uploadThisFile));
+                        submitTurncmd.Execute(new SubmitTurnCommandParam(guiGame.Game.GameId, m_Config.keepFilesInArchiveFolder, uploadThisFile));
 
                         SubmitTurnResult submitTurnResult = submitTurncmd.Result;
 
@@ -230,7 +230,7 @@ namespace YAGMRC
             this.Invoke(new Action(() =>
             {
                 SubmitTurnCommand submitTurncmd = this.m_MainViewModel.GMRMainViewModel.SubmitTurn;
-                SubmitTurnCommandParam parameter = new SubmitTurnCommandParam(guiGame.Game.GameId, this.m_Config.DoArchiveGameFiles);
+                SubmitTurnCommandParam parameter = new SubmitTurnCommandParam(guiGame.Game.GameId, this.m_Config.keepFilesInArchiveFolder);
 
                 var dialogResult = MessageBox.Show("Submit Turn ?", "Submit Turn", MessageBoxButtons.YesNo);
                 if (dialogResult == System.Windows.Forms.DialogResult.Yes)
@@ -331,12 +331,24 @@ namespace YAGMRC
             this.SaveSettings();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void googleToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            this.m_SettingsForm.ArchiveGameFilesCheckBox.Checked = this.m_Config.DoArchiveGameFiles;
-            this.m_SettingsForm.ShowDialog();
-            this.m_Config.DoArchiveGameFiles = this.m_SettingsForm.ArchiveGameFilesCheckBox.Checked;
+        }
+
+        private void multiplayerrobotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_SettingsForm.SavedFilesComboBox.DataSource = MoveFilesToGameFolderItems.DataSourceItems(MoveFilesToGameFolderItems.Create(this.m_Config.keepFilesInArchiveFolder));
+            m_SettingsForm.SavedFilesComboBox.DisplayMember = "Displayed";
+            m_SettingsForm.SavedFilesComboBox.ValueMember = "Item";
+            m_SettingsForm.SavedFilesComboBox.SelectedIndex = m_SettingsForm.SavedFilesComboBox.FindStringExact(MoveFilesToGameFolderItems.Create(this.m_Config.keepFilesInArchiveFolder).Displayed);
+
+            m_SettingsForm.ShowDialog();
+
+
+            this.m_Config.keepFilesInArchiveFolder = (m_SettingsForm.SavedFilesComboBox.SelectedValue as MoveFilesToGameFolderItems).Quantity;
+            this.m_Config.AuthKey = m_SettingsForm.AuthKeyTextBox.Text;
 
         }
     }

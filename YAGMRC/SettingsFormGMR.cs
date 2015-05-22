@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace YAGMRC
 {
-    public partial class SettingsForm : Form
+    public partial class SettingsFormGMR : Form
     {
-        public SettingsForm()
+        public SettingsFormGMR()
         {
             InitializeComponent();
         }

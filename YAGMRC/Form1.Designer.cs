@@ -38,8 +38,15 @@
             this.LoggedInCheckBox = new System.Windows.Forms.CheckBox();
             this.PleaseWaitPictureBox = new System.Windows.Forms.PictureBox();
             this.Statuslabel = new System.Windows.Forms.Label();
-            this.SettingsButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.googleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.multiplayerrobotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.googleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PleaseWaitPictureBox)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ExitButton
@@ -127,15 +134,61 @@
             this.Statuslabel.Size = new System.Drawing.Size(0, 13);
             this.Statuslabel.TabIndex = 9;
             // 
-            // SettingsButton
+            // menuStrip1
             // 
-            this.SettingsButton.Location = new System.Drawing.Point(16, 12);
-            this.SettingsButton.Name = "SettingsButton";
-            this.SettingsButton.Size = new System.Drawing.Size(75, 23);
-            this.SettingsButton.TabIndex = 10;
-            this.SettingsButton.Text = "Settings";
-            this.SettingsButton.UseVisualStyleBackColor = true;
-            this.SettingsButton.Click += new System.EventHandler(this.button1_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(413, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingToolStripMenuItem,
+            this.createGameToolStripMenuItem});
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.googleToolStripMenuItem1,
+            this.multiplayerrobotToolStripMenuItem});
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingToolStripMenuItem.Text = "Settings";
+            // 
+            // googleToolStripMenuItem1
+            // 
+            this.googleToolStripMenuItem1.Name = "googleToolStripMenuItem1";
+            this.googleToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.googleToolStripMenuItem1.Text = "Google";
+            // 
+            // multiplayerrobotToolStripMenuItem
+            // 
+            this.multiplayerrobotToolStripMenuItem.Name = "multiplayerrobotToolStripMenuItem";
+            this.multiplayerrobotToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.multiplayerrobotToolStripMenuItem.Text = "Multiplayerrobot";
+            this.multiplayerrobotToolStripMenuItem.Click += new System.EventHandler(this.multiplayerrobotToolStripMenuItem_Click);
+            // 
+            // createGameToolStripMenuItem
+            // 
+            this.createGameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.googleToolStripMenuItem});
+            this.createGameToolStripMenuItem.Name = "createGameToolStripMenuItem";
+            this.createGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.createGameToolStripMenuItem.Text = "Create Game";
+            // 
+            // googleToolStripMenuItem
+            // 
+            this.googleToolStripMenuItem.Name = "googleToolStripMenuItem";
+            this.googleToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.googleToolStripMenuItem.Text = "Google";
+            this.googleToolStripMenuItem.Click += new System.EventHandler(this.googleToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -143,7 +196,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(413, 414);
-            this.Controls.Add(this.SettingsButton);
             this.Controls.Add(this.Statuslabel);
             this.Controls.Add(this.PleaseWaitPictureBox);
             this.Controls.Add(this.LoggedInCheckBox);
@@ -153,13 +205,17 @@
             this.Controls.Add(this.MyTurnListBox);
             this.Controls.Add(this.AllGamesListBox);
             this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "YAGMRC";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PleaseWaitPictureBox)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,7 +232,13 @@
         private System.Windows.Forms.CheckBox LoggedInCheckBox;
         private System.Windows.Forms.PictureBox PleaseWaitPictureBox;
         private System.Windows.Forms.Label Statuslabel;
-        private System.Windows.Forms.Button SettingsButton;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem googleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem googleToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem multiplayerrobotToolStripMenuItem;
     }
 }
 

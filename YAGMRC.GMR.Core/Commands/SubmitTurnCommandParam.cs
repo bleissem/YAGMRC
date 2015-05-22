@@ -14,15 +14,15 @@ namespace YAGMRC.Core.Commands
         {
         }
 
-        public SubmitTurnCommandParam(int gameID, bool doArchiveFile)
+        public SubmitTurnCommandParam(int gameID, int archivedFiles)
         {
             this.GameID = gameID;
-            this.DoArchiveFile = doArchiveFile;
+            this.ArchivedFiles = archivedFiles;
             this.UseThisFileToUpload = null;
         }
 
-        public SubmitTurnCommandParam(int gameID, bool doArchiveFile, FileInfo useThisFileToUpload)
-            : this(gameID, doArchiveFile)
+        public SubmitTurnCommandParam(int gameID, int archivedFiles, FileInfo useThisFileToUpload)
+            : this(gameID, archivedFiles)
         {
             this.UseThisFileToUpload = useThisFileToUpload;
         }
@@ -31,7 +31,7 @@ namespace YAGMRC.Core.Commands
 
         public int GameID { get; private set; }
 
-        public bool DoArchiveFile { get; private set; }
+        public int ArchivedFiles { get; private set; }
 
         public FileInfo UseThisFileToUpload { get; private set; }
 

@@ -24,7 +24,11 @@ namespace YAGMRC
         private Configuration _MappedExeConfig;
 
         private const string AuthKeyConst = "AuthKey";
+
+        [Obsolete]
         private const string DoArchiveGameFilesConst = "DoArchiveGameFiles";
+        private const string KeepFilesInArchiveFolderConst = "KeepFilesInArchiveFolder";
+
         private const string AppSettingsConst = "appSettings";
 
         private string GetValue(string key)
@@ -58,7 +62,8 @@ namespace YAGMRC
             }
         }
 
-        public bool DoArchiveGameFiles
+        [Obsolete]
+        private bool DoArchiveGameFiles
         {
             get
             {
@@ -73,6 +78,26 @@ namespace YAGMRC
             set
             {
                 this.SetValue(DoArchiveGameFilesConst, value.ToString());
+            }
+        }
+
+        public int keepFilesInArchiveFolder
+        {
+            get
+            {
+
+                string str = this.GetValue(KeepFilesInArchiveFolderConst);
+                if (string.IsNullOrWhiteSpace(str))
+                {
+                    int firstSelectedItemEver = MoveFilesToGameFolderItems.All;
+                    this.SetValue(KeepFilesInArchiveFolderConst, firstSelectedItemEver.ToString());
+                    return firstSelectedItemEver;
+                }
+                return Convert.ToInt32(str);
+            }
+            set
+            {
+                this.SetValue(KeepFilesInArchiveFolderConst, value.ToString());
             }
         }
     }
