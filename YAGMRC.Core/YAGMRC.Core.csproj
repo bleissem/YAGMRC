@@ -84,7 +84,8 @@
     <Compile Include="ICommand.cs" />
     <Compile Include="IResult.cs" />
     <Compile Include="IStorage.cs" />
-    <Compile Include="LaunchSteamCommand.cs" />
+    <Compile Include="Commands\LaunchSteamCommand.cs" />
+    <Compile Include="IStorageFactory.cs" />
     <Compile Include="Model\Constants.cs" />
     <Compile Include="Model\CurrentTurn.cs" />
     <Compile Include="Model\Game.cs" />
@@ -97,6 +98,8 @@
     <Compile Include="OS\WindowsSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CreateGameViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="YAGMRCException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

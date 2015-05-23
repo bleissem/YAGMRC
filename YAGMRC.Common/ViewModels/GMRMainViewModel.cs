@@ -10,9 +10,9 @@ using YAGMRC.GMR.Core.Commands;
 using YAGMRC.GMR.Core.Web;
 
 
-namespace YAGMRC.Common
+namespace YAGMRC.Common.ViewModels
 {
-    public class GMRMainViewModel : IMultiplayerViewModel
+    public class GMRMainViewModel 
     {
         #region Constructor
 

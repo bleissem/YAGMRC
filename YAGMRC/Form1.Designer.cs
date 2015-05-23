@@ -40,11 +40,11 @@
             this.Statuslabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.googleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.multiplayerrobotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.googleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.multiplayerrobotrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.googleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.createGameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PleaseWaitPictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -147,48 +147,49 @@
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingToolStripMenuItem,
-            this.createGameToolStripMenuItem});
+            this.multiplayerrobotrToolStripMenuItem,
+            this.googleToolStripMenuItem2});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
-            // settingToolStripMenuItem
+            // multiplayerrobotrToolStripMenuItem
             // 
-            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.googleToolStripMenuItem1,
-            this.multiplayerrobotToolStripMenuItem});
-            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.settingToolStripMenuItem.Text = "Settings";
+            this.multiplayerrobotrToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem});
+            this.multiplayerrobotrToolStripMenuItem.Name = "multiplayerrobotrToolStripMenuItem";
+            this.multiplayerrobotrToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.multiplayerrobotrToolStripMenuItem.Text = "Multiplayerrobot";
             // 
-            // googleToolStripMenuItem1
+            // settingsToolStripMenuItem
             // 
-            this.googleToolStripMenuItem1.Name = "googleToolStripMenuItem1";
-            this.googleToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.googleToolStripMenuItem1.Text = "Google";
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
-            // multiplayerrobotToolStripMenuItem
+            // googleToolStripMenuItem2
             // 
-            this.multiplayerrobotToolStripMenuItem.Name = "multiplayerrobotToolStripMenuItem";
-            this.multiplayerrobotToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.multiplayerrobotToolStripMenuItem.Text = "Multiplayerrobot";
-            this.multiplayerrobotToolStripMenuItem.Click += new System.EventHandler(this.multiplayerrobotToolStripMenuItem_Click);
+            this.googleToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem1,
+            this.createGameToolStripMenuItem1});
+            this.googleToolStripMenuItem2.Name = "googleToolStripMenuItem2";
+            this.googleToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.googleToolStripMenuItem2.Text = "Google";
             // 
-            // createGameToolStripMenuItem
+            // settingsToolStripMenuItem1
             // 
-            this.createGameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.googleToolStripMenuItem});
-            this.createGameToolStripMenuItem.Name = "createGameToolStripMenuItem";
-            this.createGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.createGameToolStripMenuItem.Text = "Create Game";
+            this.settingsToolStripMenuItem1.Name = "settingsToolStripMenuItem1";
+            this.settingsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem1.Text = "Settings";
+            this.settingsToolStripMenuItem1.Click += new System.EventHandler(this.settingsToolStripMenuItem1_Click);
             // 
-            // googleToolStripMenuItem
+            // createGameToolStripMenuItem1
             // 
-            this.googleToolStripMenuItem.Name = "googleToolStripMenuItem";
-            this.googleToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.googleToolStripMenuItem.Text = "Google";
-            this.googleToolStripMenuItem.Click += new System.EventHandler(this.googleToolStripMenuItem_Click);
+            this.createGameToolStripMenuItem1.Name = "createGameToolStripMenuItem1";
+            this.createGameToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.createGameToolStripMenuItem1.Text = "Create Game";
+            this.createGameToolStripMenuItem1.Click += new System.EventHandler(this.createGameToolStripMenuItem1_Click);
             // 
             // Form1
             // 
@@ -234,11 +235,11 @@
         private System.Windows.Forms.Label Statuslabel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createGameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem googleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem googleToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem multiplayerrobotToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem multiplayerrobotrToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem googleToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem createGameToolStripMenuItem1;
     }
 }
 

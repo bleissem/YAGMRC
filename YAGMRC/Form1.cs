@@ -22,13 +22,13 @@ namespace YAGMRC
             Trace.Listeners.Add(m_MyTraceListener);
 
             m_SettingsForm = new SettingsFormGMR();
-            m_MainViewModel = new MainViewModel();
+            m_MainViewModel = new YAGMRC.Common.ViewModels.MainViewModel();
             m_Config = new MyConfig();
 
             InitializeComponent();
         }
 
-        private MainViewModel m_MainViewModel;
+        private YAGMRC.Common.ViewModels.MainViewModel m_MainViewModel;
         private MyConfig m_Config;
         private MyTraceListener m_MyTraceListener;
         private SettingsFormGMR m_SettingsForm;
@@ -165,7 +165,7 @@ namespace YAGMRC
                 if (dialogResult == System.Windows.Forms.DialogResult.Yes)
                 {
                     Trace.WriteLine("launching steam (takes a while)");
-                    this.m_MainViewModel.LaunchSteam.Execute();
+                    this.m_MainViewModel.CoreMainViewModel.LaunchSteam.Execute();
                 }
             }));
 
@@ -223,7 +223,7 @@ namespace YAGMRC
                 if (dialogResult == System.Windows.Forms.DialogResult.Yes)
                 {
                     Trace.WriteLine("launching steam (takes a while)");
-                    this.m_MainViewModel.LaunchSteam.Execute();
+                    this.m_MainViewModel.CoreMainViewModel.LaunchSteam.Execute();
                 }
             }));
 
@@ -332,12 +332,14 @@ namespace YAGMRC
         }
 
 
-        private void googleToolStripMenuItem_Click(object sender, EventArgs e)
+       
+        private void multiplayerrobotToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        
 
         }
 
-        private void multiplayerrobotToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GMRSettings()
         {
             m_SettingsForm.SavedFilesComboBox.DataSource = MoveFilesToGameFolderItems.DataSourceItems(MoveFilesToGameFolderItems.Create(this.m_Config.keepFilesInArchiveFolder));
             m_SettingsForm.SavedFilesComboBox.DisplayMember = "Displayed";
@@ -349,7 +351,38 @@ namespace YAGMRC
 
             this.m_Config.keepFilesInArchiveFolder = (m_SettingsForm.SavedFilesComboBox.SelectedValue as MoveFilesToGameFolderItems).Quantity;
             this.m_Config.AuthKey = m_SettingsForm.AuthKeyTextBox.Text;
+        }
 
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.GMRSettings();
+        }
+
+        private void GoogleSettings()
+        {
+
+        }
+
+        private void settingsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateGoogleGame()
+        {
+            IStorageFactory sf = new YAGMRC.Common.Factories.CreateGoogleStorage("user");
+
+            this.m_MainViewModel.CoreMainViewModel.CreateGame.CreateGame(new Core.ViewModels.CreateGameViewModel.CreateGameParam()
+                {
+                    CreateStorage = sf,             
+                    Game = new Core.Model.Game(),
+                    SavedGame = new FileInfo("")            
+                });
+        }
+
+        private void createGameToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.CreateGoogleGame();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
-namespace YAGMRC.Core
+namespace YAGMRC.Core.Commands
 {
     public class LaunchSteamCommand : ICommand, IResult<bool>
     {

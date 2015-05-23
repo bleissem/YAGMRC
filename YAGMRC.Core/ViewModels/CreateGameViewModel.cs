@@ -13,9 +13,9 @@ namespace YAGMRC.Core.ViewModels
     {
         #region constructor
 
-        public CreateGameViewModel(IStorage storage)
+        public CreateGameViewModel()
         {
-            m_Execute = new RelayCommand<CreateGameParam>((createGame) => storage.Upload(createGame.Game, CreateGame(createGame.Game), createGame.SavedGame));
+            
         }
 
         #endregion
@@ -24,6 +24,7 @@ namespace YAGMRC.Core.ViewModels
 
         public class CreateGameParam
         {
+            public IStorageFactory CreateStorage { get; set; }
             public Game Game { get; set; }
             public FileInfo SavedGame { get; set; }
         }
@@ -38,18 +39,21 @@ namespace YAGMRC.Core.ViewModels
 
         #endregion
 
-        private FileInfo CreateGame(Game game)
+        private FileInfo CreateDBFile(Game game)
         {
+            //TODO: implement DB 
             throw new NotImplementedException();
         }
 
-        private RelayCommand<CreateGameParam> m_Execute;
-        public RelayCommand<CreateGameParam> Execute
+        public CreateGameResult CreateGame(CreateGameParam param)
         {
-            get
+            if (!param.SavedGame.Exists)
             {
-                return m_Execute;
+                throw new YAGMRCException(param.SavedGame + Environment.NewLine + "does not exists");
             }
+            IStorage storage = param.CreateStorage.Create();
+            FileInfo dbfileToUpload = CreateDBFile(param.Game);
+            return storage.Upload(param.Game, dbfileToUpload, param.SavedGame);
         }
 
     }
