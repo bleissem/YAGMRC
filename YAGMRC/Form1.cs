@@ -370,14 +370,20 @@ namespace YAGMRC
 
         private void CreateGoogleGame()
         {
-            IStorageFactory sf = new YAGMRC.Common.Factories.CreateGoogleStorage("user");
+            CreateGoogleGameForm cggf = new CreateGoogleGameForm();
+            var dialogResult = cggf.ShowDialog();
 
-            this.m_MainViewModel.CoreMainViewModel.CreateGame.CreateGame(new Core.ViewModels.CreateGameViewModel.CreateGameParam()
-                {
-                    CreateStorage = sf,             
-                    Game = new Core.Model.Game(),
-                    SavedGame = new FileInfo("")            
-                });
+            if (DialogResult.OK == dialogResult)
+            {
+                IStorageFactory sf = new YAGMRC.Common.Factories.CreateGoogleStorage("user");
+
+                this.m_MainViewModel.CoreMainViewModel.CreateGame.CreateGame(new Core.ViewModels.CreateGameViewModel.CreateGameParam()
+                    {
+                        CreateStorage = sf,
+                        Game = new Core.Model.Game(),
+                        SavedGame = new FileInfo("")
+                    });
+            }
         }
 
         private void createGameToolStripMenuItem1_Click(object sender, EventArgs e)
