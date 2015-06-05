@@ -147,6 +147,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GuiCreateGoogleGame.cs" />
     <Compile Include="GuiGame.cs" />
     <Compile Include="MoveFilesToGameFolderItems.cs" />
     <Compile Include="MyConfig.cs" />
@@ -181,6 +182,7 @@
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\GuiCreateGoogleGame.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -371,10 +371,14 @@ namespace YAGMRC
         private void CreateGoogleGame()
         {
             CreateGoogleGameForm cggf = new CreateGoogleGameForm();
+            var dataSourceList = new List<GuiCreateGoogleGame>();
+            cggf.guiCreateGoogleGameBindingSource.DataSource = dataSourceList;
             var dialogResult = cggf.ShowDialog();
 
-            if (DialogResult.OK == dialogResult)
+            if ( (DialogResult.OK == dialogResult) && (null != dataSourceList) && (0 < dataSourceList.Count) )
             {
+                 
+                // TODO: create game model
                 IStorageFactory sf = new YAGMRC.Common.Factories.CreateGoogleStorage("user");
 
                 this.m_MainViewModel.CoreMainViewModel.CreateGame.CreateGame(new Core.ViewModels.CreateGameViewModel.CreateGameParam()
