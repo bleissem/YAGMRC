@@ -87,11 +87,11 @@
     <Compile Include="Commands\LaunchSteamCommand.cs" />
     <Compile Include="IStorageFactory.cs" />
     <Compile Include="Model\Constants.cs" />
-    <Compile Include="Model\CurrentTurn.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Players.cs" />
     <Compile Include="Model\Turn.cs" />
+    <Compile Include="Model\Turns.cs" />
     <Compile Include="OS\IOSSetting.cs" />
     <Compile Include="OS\LinuxSetting.cs" />
     <Compile Include="OS\OSSetting.cs" />

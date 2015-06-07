@@ -171,18 +171,11 @@ namespace YAGMRC
 
             this.Invoke(new Action(() =>
                 {
-                    OpenFileDialog openFileDialog = new OpenFileDialog();
+                    FileInfo uploadThisFile;
+                    bool doUploadThisFile = this.TryGetFileToUpload(out uploadThisFile);
 
-                    openFileDialog.Filter = "Civ5 files (*.Civ5Save)|*.Civ5Save|All files (*.*)|*.*";
-                    openFileDialog.FilterIndex = 2;
-                    openFileDialog.InitialDirectory = m_MainViewModel.GMRMainViewModel.Resolver.GetInstance<IOSSetting>().CIVSaveGamePath.FullName;
-                    openFileDialog.RestoreDirectory = true;
-
-                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    if ( (doUploadThisFile) && (null != uploadThisFile))
                     {
-                        FileInfo uploadThisFile = new FileInfo(openFileDialog.FileName);
-                        Trace.Assert(uploadThisFile.Exists);
-
                         //upload and finish
                         Trace.WriteLine("uploading (takes a while)");
                         SubmitTurnCommand submitTurncmd = this.m_MainViewModel.GMRMainViewModel.SubmitTurn;
@@ -368,6 +361,25 @@ namespace YAGMRC
 
         }
 
+        private bool TryGetFileToUpload(out FileInfo uploadThisFile)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Filter = "Civ5 files (*.Civ5Save)|*.Civ5Save|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.InitialDirectory = m_MainViewModel.GMRMainViewModel.Resolver.GetInstance<IOSSetting>().CIVSaveGamePath.FullName;
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                uploadThisFile = new FileInfo(openFileDialog.FileName);
+                Trace.Assert(uploadThisFile.Exists);
+                return uploadThisFile.Exists;
+            }
+
+            uploadThisFile = null;
+            return false;
+        }
         private void CreateGoogleGame()
         {
             CreateGoogleGameForm cggf = new CreateGoogleGameForm();
@@ -377,15 +389,26 @@ namespace YAGMRC
 
             if ( (DialogResult.OK == dialogResult) && (null != dataSourceList) && (0 < dataSourceList.Count) )
             {
+                FileInfo fileToUpload;
+                bool useThisFileToUpload = this.TryGetFileToUpload(out fileToUpload);
+
                 string user = cggf.UserNameAtGoogleTextBox.Text;
-                // TODO: create game model
+                string nameforthegame = cggf.gameName.Text;
+                
                 IStorageFactory sf = new YAGMRC.Common.Factories.CreateGoogleStorage(user);
+
+                Core.Model.Game game = new Core.Model.Game();
+                foreach(GuiCreateGoogleGame guiGame in dataSourceList)
+                {
+                    game.AddPlayers(guiGame.Name, guiGame.Email);
+                    
+                }
 
                 this.m_MainViewModel.CoreMainViewModel.CreateGame.CreateGame(new Core.ViewModels.CreateGameViewModel.CreateGameParam()
                     {
                         CreateStorage = sf,
-                        Game = new Core.Model.Game(),
-                        SavedGame = new FileInfo("")
+                        Game = game,
+                        SavedGame = fileToUpload
                     });
             }
         }

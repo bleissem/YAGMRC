@@ -12,7 +12,7 @@ namespace YAGMRC.Core.Model
         public Game()
         {
             this.m_Players = new Players();
-            this.m_Turn = new Turn();
+            this.m_Turns = new Turns();
             this.m_ID = Guid.NewGuid();
         }
 
@@ -32,6 +32,7 @@ namespace YAGMRC.Core.Model
         {
             Player newPlayer = new Player(name, email);
             this.m_Players.Add(newPlayer);
+            this.m_Turns.Add(new Turn(newPlayer));
         }
 
         private Guid m_ID;
@@ -52,14 +53,16 @@ namespace YAGMRC.Core.Model
             }
         }
 
-        private Turn m_Turn;
+        private Turns m_Turns;
 
-        public Turn Turn
+        public Turns Turns
         {
             get
             {
-                return m_Turn;
+                return m_Turns;
             }
         }
+
+       
     }
 }
