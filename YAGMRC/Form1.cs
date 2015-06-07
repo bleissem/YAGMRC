@@ -377,9 +377,9 @@ namespace YAGMRC
 
             if ( (DialogResult.OK == dialogResult) && (null != dataSourceList) && (0 < dataSourceList.Count) )
             {
-                 
+                string user = cggf.UserNameAtGoogleTextBox.Text;
                 // TODO: create game model
-                IStorageFactory sf = new YAGMRC.Common.Factories.CreateGoogleStorage("user");
+                IStorageFactory sf = new YAGMRC.Common.Factories.CreateGoogleStorage(user);
 
                 this.m_MainViewModel.CoreMainViewModel.CreateGame.CreateGame(new Core.ViewModels.CreateGameViewModel.CreateGameParam()
                     {
