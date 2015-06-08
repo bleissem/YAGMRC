@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YAGMRC.Core.Model;
+using YAGMRC.Core.OS;
 
 namespace YAGMRC.Core.ViewModels
 {
@@ -13,9 +14,9 @@ namespace YAGMRC.Core.ViewModels
     {
         #region constructor
 
-        public CreateGameViewModel()
+        public CreateGameViewModel(IOSSetting settings)
         {
-            
+            m_Settings = settings;
         }
 
         #endregion
@@ -39,10 +40,31 @@ namespace YAGMRC.Core.ViewModels
 
         #endregion
 
+        private IOSSetting m_Settings;
+
+        private FileInfo CreateGameDBFile(Game game, DirectoryInfo dir)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CreateOrEditMasterTable(Game game, DirectoryInfo dir)
+        {
+
+        }
+
         private FileInfo CreateDBFile(Game game)
         {
-            //TODO: implement DB 
-            throw new NotImplementedException();
+           if (!this.m_Settings.BasePath.Exists)
+           {
+               Directory.CreateDirectory(this.m_Settings.BasePath.FullName);
+           }
+
+           this.CreateOrEditMasterTable(game, this.m_Settings.BasePath);
+           
+           DirectoryInfo gameDir =  Directory.CreateDirectory(Path.Combine(this.m_Settings.BasePath.FullName, game.ID.ToString()));
+
+           return this.CreateGameDBFile(game, gameDir);
+
         }
 
         public CreateGameResult CreateGame(CreateGameParam param)

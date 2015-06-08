@@ -8,9 +8,16 @@ namespace YAGMRC.Core.OS
 {
     public interface IOSSetting
     {
+        DirectoryInfo BasePath
+        {
+            get;
+        }
+
         DirectoryInfo CIVSaveGamePath
         {
             get;
         }
+
+        
     }
 }

@@ -38,5 +38,13 @@ namespace YAGMRC.Core.OS
                 return m_Setting.CIVSaveGamePath;
             }
         }
+
+        public System.IO.DirectoryInfo BasePath
+        {
+            get
+            {
+                return m_Setting.BasePath;
+            }
+        }
     }
 }

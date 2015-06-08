@@ -33,14 +33,15 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.UserNameAtGoogleTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.gameName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guiCreateGoogleGameBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.gameName = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guiCreateGoogleGameBindingSource)).BeginInit();
@@ -55,6 +56,7 @@
             this.flowLayoutPanel1.Controls.Add(this.dataGridView1);
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Controls.Add(this.label3);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -77,6 +79,22 @@
             this.UserNameAtGoogleTextBox.Size = new System.Drawing.Size(100, 20);
             this.UserNameAtGoogleTextBox.TabIndex = 8;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "name for the game";
+            // 
+            // gameName
+            // 
+            this.gameName.Location = new System.Drawing.Point(104, 29);
+            this.gameName.Name = "gameName";
+            this.gameName.Size = new System.Drawing.Size(100, 20);
+            this.gameName.TabIndex = 10;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
@@ -88,8 +106,24 @@
             this.dataGridView1.DataSource = this.guiCreateGoogleGameBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 55);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(357, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(297, 150);
             this.dataGridView1.TabIndex = 6;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // guiCreateGoogleGameBindingSource
+            // 
+            this.guiCreateGoogleGameBindingSource.DataSource = typeof(YAGMRC.GuiCreateGoogleGame);
             // 
             // button1
             // 
@@ -111,37 +145,14 @@
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // nameDataGridViewTextBoxColumn
+            // label3
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // guiCreateGoogleGameBindingSource
-            // 
-            this.guiCreateGoogleGameBindingSource.DataSource = typeof(YAGMRC.GuiCreateGoogleGame);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "name for the game";
-            // 
-            // gameName
-            // 
-            this.gameName.Location = new System.Drawing.Point(104, 29);
-            this.gameName.Name = "gameName";
-            this.gameName.Size = new System.Drawing.Size(100, 20);
-            this.gameName.TabIndex = 10;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(139, 208);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "name for the game";
             // 
             // CreateGoogleGameForm
             // 
@@ -173,5 +184,6 @@
         public System.Windows.Forms.TextBox UserNameAtGoogleTextBox;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox gameName;
+        private System.Windows.Forms.Label label3;
     }
 }

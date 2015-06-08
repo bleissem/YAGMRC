@@ -9,22 +9,25 @@ namespace YAGMRC.Core.Model
     {
         #region constructor
 
-        public Game()
+        private Game()
         {
             this.m_Players = new Players();
             this.m_Turns = new Turns();
             this.m_ID = Guid.NewGuid();
         }
 
-        public Game(string name)
+        public Game(string name, GameType gameType)
             : this()
         {
             this.Name = name;
+            this.GameType = gameType;
         }
 
         #endregion constructor
 
         public string Name { get; set; }
+
+        public GameType GameType { get; set; }
 
         private Players m_Players;
 

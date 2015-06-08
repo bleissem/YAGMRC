@@ -397,7 +397,7 @@ namespace YAGMRC
                 
                 IStorageFactory sf = new YAGMRC.Common.Factories.CreateGoogleStorage(user);
 
-                Core.Model.Game game = new Core.Model.Game();
+                Core.Model.Game game = new Core.Model.Game(nameforthegame, Core.Model.GameType.CivilisationV); //FIXME:
                 foreach(GuiCreateGoogleGame guiGame in dataSourceList)
                 {
                     game.AddPlayers(guiGame.Name, guiGame.Email);

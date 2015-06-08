@@ -8,14 +8,29 @@ namespace YAGMRC.Core.OS
 {
     public class LinuxSetting : IOSSetting
     {
+
+        #region constructor
+
+        public LinuxSetting()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string local = ".local";
+            this.BasePath = new DirectoryInfo(Path.Combine(path, local, "YAGMRC"));
+            this.CIVSaveGamePath = new DirectoryInfo(Path.Combine(path, local, "share", "Aspyr", "Sid Meier's Civilization 5", "Saves", "hotseat"));
+        }
+
+        #endregion
+
         public System.IO.DirectoryInfo CIVSaveGamePath
         {
-            get
-            {
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                path = Path.Combine(path, ".local", "share", "Aspyr", "Sid Meier's Civilization 5", "Saves", "hotseat");
-                return new DirectoryInfo(path);
-            }
+            get;
+            private set;
+        }
+
+        public DirectoryInfo BasePath
+        {
+            get;
+            private set;
         }
     }
 }

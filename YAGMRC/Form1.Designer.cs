@@ -45,6 +45,7 @@
             this.googleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createGameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.importGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PleaseWaitPictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -172,7 +173,8 @@
             // 
             this.googleToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem1,
-            this.createGameToolStripMenuItem1});
+            this.createGameToolStripMenuItem1,
+            this.importGameToolStripMenuItem});
             this.googleToolStripMenuItem2.Name = "googleToolStripMenuItem2";
             this.googleToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.googleToolStripMenuItem2.Text = "Google";
@@ -190,6 +192,12 @@
             this.createGameToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.createGameToolStripMenuItem1.Text = "Create Game";
             this.createGameToolStripMenuItem1.Click += new System.EventHandler(this.createGameToolStripMenuItem1_Click);
+            // 
+            // importGameToolStripMenuItem
+            // 
+            this.importGameToolStripMenuItem.Name = "importGameToolStripMenuItem";
+            this.importGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.importGameToolStripMenuItem.Text = "Import Game";
             // 
             // Form1
             // 
@@ -240,6 +248,7 @@
         private System.Windows.Forms.ToolStripMenuItem googleToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem createGameToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem importGameToolStripMenuItem;
     }
 }
 
