@@ -43,6 +43,10 @@ namespace YAGMRC.Core.ViewModels
 
         private IOSSetting m_Settings;
 
+        private FileInfo CreateGameDatabaseFiles(Game game, DirectoryInfo dir)
+        {
+            throw new NotImplementedException();
+        }
 
         private FileInfo MasterTableFile
         {
@@ -52,21 +56,14 @@ namespace YAGMRC.Core.ViewModels
             }
         }
 
-        private FileInfo CreateGameDBFile(Game game, DirectoryInfo dir)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void CreateOrEditMasterTable(Game game, StorageType storageType, DirectoryInfo dir)
-        {
-
+        private void CreateOrEditMasterTable(Game game)
+        {  
             var db = CreateSQLLiteConnection.Create(MasterTableFile);
-
             db.CreateTable<MasterTable>();
-
             MasterTable master = new MasterTable();
             master.Guid = game.ID;
-            master.LocationType = storageType;
+            master.Me = game.Players.First().ID;              
+            db.Insert(master);
         }
 
         private FileInfo CreateDBFile(Game game, StorageType storageType)
@@ -76,11 +73,11 @@ namespace YAGMRC.Core.ViewModels
                Directory.CreateDirectory(this.m_Settings.BasePath.FullName);
            }
 
-           this.CreateOrEditMasterTable(game, storageType, this.m_Settings.BasePath);
+           this.CreateOrEditMasterTable(game);
            
            DirectoryInfo gameDir =  Directory.CreateDirectory(Path.Combine(this.m_Settings.BasePath.FullName, game.ID.ToString()));
 
-           return this.CreateGameDBFile(game, gameDir);
+           return this.CreateGameDatabaseFiles(game, gameDir);
 
         }
 

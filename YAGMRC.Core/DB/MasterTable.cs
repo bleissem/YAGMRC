@@ -14,7 +14,7 @@ namespace YAGMRC.Core.DB
         [PrimaryKey]
         public Guid Guid { get; set; }
 
-        public StorageType LocationType { get; set; }
+        public Guid Me { get; set; }
 
     }
 }
