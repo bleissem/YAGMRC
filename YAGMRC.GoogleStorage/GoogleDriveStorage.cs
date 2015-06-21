@@ -30,5 +30,7 @@ namespace YAGMRC.GoogleStorage
             return new CreateGameViewModel.CreateGameResult();
         }
 
+
+        public Core.Model.StorageType Type { get { return Core.Model.StorageType.GoogleDrive; } }
     }
 }

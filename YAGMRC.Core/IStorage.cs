@@ -11,6 +11,7 @@ namespace YAGMRC.Core
 {
     public interface IStorage
     {
+        StorageType Type { get; }
         CreateGameViewModel.CreateGameResult Upload(Game game, FileInfo dbFile, FileInfo savedGame);
     }
 }

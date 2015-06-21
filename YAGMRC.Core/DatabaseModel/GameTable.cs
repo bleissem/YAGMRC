@@ -15,7 +15,7 @@ namespace YAGMRC.Core.DatabaseModel
 
         public string Name { get; set; }
 
-        public LocationType Location { get; set; }
+        public StorageType Location { get; set; }
 
         public GameType Type { get; set; }
     }

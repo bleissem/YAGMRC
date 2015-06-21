@@ -10,7 +10,7 @@ namespace YAGMRC.Core.Model
         CivilisationV = 1
     }
 
-    public enum LocationType
+    public enum StorageType
     {
         GoogleDrive = 1
     }
