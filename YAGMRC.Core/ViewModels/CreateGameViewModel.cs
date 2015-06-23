@@ -43,9 +43,18 @@ namespace YAGMRC.Core.ViewModels
 
         private IOSSetting m_Settings;
 
+
+        private FileInfo GameTableFile(Game game)
+        {
+            return new FileInfo(Path.Combine(m_Settings.BasePath.FullName, game.ID.ToString(), "game.db3"));
+        }
+
         private FileInfo CreateGameDatabaseFiles(Game game, DirectoryInfo dir)
         {
-            throw new NotImplementedException();
+            FileInfo gameFile = GameTableFile(game);
+            var db = CreateSQLLiteConnection.Create(gameFile);
+
+            return gameFile;
         }
 
         private FileInfo MasterTableFile
@@ -62,7 +71,7 @@ namespace YAGMRC.Core.ViewModels
             db.CreateTable<MasterTable>();
             MasterTable master = new MasterTable();
             master.Guid = game.ID;
-            master.Me = game.Players.First().ID;              
+            master.Me = game.Me.ID;              
             db.Insert(master);
         }
 

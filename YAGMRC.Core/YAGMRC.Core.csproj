@@ -54,8 +54,9 @@
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="SQLite.Net, Version=3.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLite.Net-PCL.3.0.5\lib\net40\SQLite.Net.dll</HintPath>
@@ -94,7 +95,9 @@
     <Compile Include="DatabaseModel\PlayersTable.cs" />
     <Compile Include="DatabaseModel\TurnTable.cs" />
     <Compile Include="DB\CreateSQLLiteConnection.cs" />
+    <Compile Include="DB\GameTable.cs" />
     <Compile Include="DB\MasterTable.cs" />
+    <Compile Include="DB\PlayersTable.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IResult.cs" />

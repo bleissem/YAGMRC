@@ -11,6 +11,7 @@ namespace YAGMRC.Core.Model
 
         private Game()
         {
+            this.Me = null;
             this.m_Players = new Players();
             this.m_Turns = new Turns();
             this.m_ID = Guid.NewGuid();
@@ -29,6 +30,8 @@ namespace YAGMRC.Core.Model
 
         public GameType GameType { get; set; }
 
+        public Player Me { get; set; }
+
         private Players m_Players;
 
         public void AddPlayers(string name, string email)
@@ -36,6 +39,10 @@ namespace YAGMRC.Core.Model
             Player newPlayer = new Player(name, email);
             this.m_Players.Add(newPlayer);
             this.m_Turns.Add(new Turn(newPlayer));
+            if (null == Me)
+            {
+                Me = newPlayer;
+            }
         }
 
         private Guid m_ID;
