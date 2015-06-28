@@ -54,6 +54,30 @@ namespace YAGMRC.Core.ViewModels
             FileInfo gameFile = GameTableFile(game);
             var db = CreateSQLLiteConnection.Create(gameFile);
 
+            db.CreateTable<GameTable>();
+            db.CreateTable<PlayersTable>();
+            db.CreateTable<PlayerTable>();
+
+            GameTable gametable = new GameTable();
+            gametable.ID = game.ID;
+            
+
+            foreach(Player player in game.Players)
+            {
+                PlayerTable playerTable = new PlayerTable();
+                playerTable.ID = player.ID;
+                playerTable.Name = player.Name;
+                playerTable.Email = player.EMail;
+
+                
+                PlayersTable playersTable = new PlayersTable();
+                playersTable.GameID = game.ID;
+                playersTable.PlayerID = player.ID;
+
+
+
+            }
+
             return gameFile;
         }
 

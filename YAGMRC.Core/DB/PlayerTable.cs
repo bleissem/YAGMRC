@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace YAGMRC.Core.DB
 {
-    [Table("Players")]
-    public class PlayersTable
+    [Table("Player")]
+    public class PlayerTable
     {
         [SQLite.Net.Attributes.NotNull]
-        public Guid GameID { get; set; }
+        public Guid ID { get; set; }
 
-        public Guid PlayerID { get; set; }
+        public string Name { get; set; }
+
+        public string Email { get; set; }
     }
 }

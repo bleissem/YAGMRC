@@ -98,6 +98,7 @@
     <Compile Include="DB\GameTable.cs" />
     <Compile Include="DB\MasterTable.cs" />
     <Compile Include="DB\PlayersTable.cs" />
+    <Compile Include="DB\PlayerTable.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IResult.cs" />
