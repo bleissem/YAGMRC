@@ -68,13 +68,10 @@ namespace YAGMRC.Core.ViewModels
                 playerTable.ID = player.ID;
                 playerTable.Name = player.Name;
                 playerTable.Email = player.EMail;
-
                 
                 PlayersTable playersTable = new PlayersTable();
                 playersTable.GameID = game.ID;
                 playersTable.PlayerID = player.ID;
-
-
 
             }
 

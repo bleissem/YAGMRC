@@ -14,5 +14,7 @@ namespace YAGMRC.Core.DB
         public Guid GameID { get; set; }
 
         public Guid PlayerID { get; set; }
+
+        public int Turn { get; set; }
     }
 }
