@@ -60,8 +60,8 @@ namespace YAGMRC.Core.ViewModels
 
             GameTable gametable = new GameTable();
             gametable.ID = game.ID;
-            
 
+            int turnID = 0;
             foreach(Player player in game.Players)
             {
                 PlayerTable playerTable = new PlayerTable();
@@ -72,6 +72,9 @@ namespace YAGMRC.Core.ViewModels
                 PlayersTable playersTable = new PlayersTable();
                 playersTable.GameID = game.ID;
                 playersTable.PlayerID = player.ID;
+                playersTable.Turn = turnID;
+                
+                turnID++;
 
             }
 
