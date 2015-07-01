@@ -94,7 +94,7 @@ namespace YAGMRC.Core.ViewModels
             var db = CreateSQLLiteConnection.Create(MasterTableFile);
             db.CreateTable<MasterTable>();
             MasterTable master = new MasterTable();
-            master.Guid = game.ID;
+            master.GameGuid = game.ID;
             master.Me = game.Me.ID;              
             db.Insert(master);
         }

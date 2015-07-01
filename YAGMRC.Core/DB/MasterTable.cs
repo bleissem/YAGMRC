@@ -12,9 +12,10 @@ namespace YAGMRC.Core.DB
     internal class MasterTable
     {
         [PrimaryKey]
-        public Guid Guid { get; set; }
+        public Guid GameGuid { get; set; }
 
         public Guid Me { get; set; }
+
 
     }
 }
