@@ -13,5 +13,6 @@ namespace YAGMRC.Core
     {
         StorageType Type { get; }
         CreateGameViewModel.CreateGameResult Upload(Game game, FileInfo dbFile, FileInfo savedGame);
+        void Accept(SQLite.Net.SQLiteConnection db);
     }
 }

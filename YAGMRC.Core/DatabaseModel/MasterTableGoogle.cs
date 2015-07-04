@@ -10,10 +10,11 @@ namespace YAGMRC.Core.DatabaseModel
     [Table("MasterTableGoogle")]
     public class MasterTableGoogle
     {
+        [PrimaryKey]
         public Guid GameID { get; set; }
 
-        public string DBFile { get; set; }
+        public string DBFileID { get; set; }
 
-        public string GameFile { get; set; }
+        public string GameFileID { get; set; }
     }
 }

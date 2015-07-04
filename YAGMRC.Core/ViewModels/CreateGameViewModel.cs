@@ -89,7 +89,7 @@ namespace YAGMRC.Core.ViewModels
             }
         }
 
-        private void CreateOrEditMasterTable(Game game, StorageType storageType)
+        private void CreateOrEditMasterTable(Game game, IStorage storage)
         {  
             var db = CreateSQLLiteConnection.Create(MasterTableFile);
             db.CreateTable<MasterTable>();
@@ -97,18 +97,20 @@ namespace YAGMRC.Core.ViewModels
             master.GameGuid = game.ID;
             master.Me = game.Me.ID;
             master.GameType = game.GameType;
-            master.StorageType = storageType;
+            master.StorageType = storage.Type;
             db.Insert(master);
+
+            storage.Accept(db);
         }
 
-        private FileInfo CreateDBFile(Game game, StorageType storageType)
+        private FileInfo CreateDBFile(Game game, IStorage storage)
         {
            if (!this.m_Settings.BasePath.Exists)
            {
                Directory.CreateDirectory(this.m_Settings.BasePath.FullName);
            }
 
-           this.CreateOrEditMasterTable(game, storageType);
+           this.CreateOrEditMasterTable(game, storage);
            
            DirectoryInfo gameDir =  Directory.CreateDirectory(Path.Combine(this.m_Settings.BasePath.FullName, game.ID.ToString()));
 
@@ -116,11 +118,7 @@ namespace YAGMRC.Core.ViewModels
 
         }
 
-        private void UpdateStorage(CreateGameResult gameResult)
-        {
-
-        }
-
+       
         public CreateGameResult CreateGame(CreateGameParam param)
         {
             if (!param.SavedGame.Exists)
@@ -128,9 +126,8 @@ namespace YAGMRC.Core.ViewModels
                 throw new YAGMRCException(param.SavedGame + Environment.NewLine + "does not exists");
             }
             IStorage storage = param.CreateStorage.Create();
-            FileInfo dbfileToUpload = CreateDBFile(param.Game, storage.Type);
+            FileInfo dbfileToUpload = CreateDBFile(param.Game, storage);
             var storageResult = storage.Upload(param.Game, dbfileToUpload, param.SavedGame);
-            this.UpdateStorage(storageResult);
             return storageResult;
             
         }
