@@ -89,13 +89,15 @@ namespace YAGMRC.Core.ViewModels
             }
         }
 
-        private void CreateOrEditMasterTable(Game game)
+        private void CreateOrEditMasterTable(Game game, StorageType storageType)
         {  
             var db = CreateSQLLiteConnection.Create(MasterTableFile);
             db.CreateTable<MasterTable>();
             MasterTable master = new MasterTable();
             master.GameGuid = game.ID;
-            master.Me = game.Me.ID;              
+            master.Me = game.Me.ID;
+            master.GameType = game.GameType;
+            master.StorageType = storageType;
             db.Insert(master);
         }
 
@@ -106,11 +108,16 @@ namespace YAGMRC.Core.ViewModels
                Directory.CreateDirectory(this.m_Settings.BasePath.FullName);
            }
 
-           this.CreateOrEditMasterTable(game);
+           this.CreateOrEditMasterTable(game, storageType);
            
            DirectoryInfo gameDir =  Directory.CreateDirectory(Path.Combine(this.m_Settings.BasePath.FullName, game.ID.ToString()));
 
            return this.CreateGameDatabaseFiles(game, gameDir);
+
+        }
+
+        private void UpdateStorage(CreateGameResult gameResult)
+        {
 
         }
 
@@ -122,7 +129,10 @@ namespace YAGMRC.Core.ViewModels
             }
             IStorage storage = param.CreateStorage.Create();
             FileInfo dbfileToUpload = CreateDBFile(param.Game, storage.Type);
-            return storage.Upload(param.Game, dbfileToUpload, param.SavedGame);
+            var storageResult = storage.Upload(param.Game, dbfileToUpload, param.SavedGame);
+            this.UpdateStorage(storageResult);
+            return storageResult;
+            
         }
 
     }

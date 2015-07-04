@@ -16,6 +16,9 @@ namespace YAGMRC.Core.DB
 
         public Guid Me { get; set; }
 
+        public GameType GameType { get; set; }
+
+        public StorageType StorageType { get; set; }
 
     }
 }
