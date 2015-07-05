@@ -35,8 +35,16 @@ namespace YAGMRC.Core.ViewModels
         {
             public CreateGameResult()
             {
-
+                this.IDList = new List<string>();
             }
+
+            public List<string> IDList { get; set; }
+
+            public Guid GameID { get; set; }
+
+            public GameType GameType { get; set; }
+
+            public StorageType StorageType { get; set; }
         }
 
         #endregion

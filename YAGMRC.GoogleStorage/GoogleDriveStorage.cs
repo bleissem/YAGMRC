@@ -28,7 +28,7 @@ namespace YAGMRC.GoogleStorage
         {
             CreateGameAtGoogle cgg = new CreateGameAtGoogle();
             GoogleDrive.GoogleStorageResult googleResult = cgg.Execute(m_User, game, dbFile, savedGame);
-            //TODO:
+            
             m_DB.CreateTable<MasterTableGoogle>();
 
             MasterTableGoogle googleMasterTable = new MasterTableGoogle();
@@ -37,7 +37,14 @@ namespace YAGMRC.GoogleStorage
             googleMasterTable.GameFileID = googleResult.GameFileID;
             m_DB.Insert(googleMasterTable);
 
-            return new CreateGameViewModel.CreateGameResult();
+            var result = new CreateGameViewModel.CreateGameResult();
+            result.GameID = game.ID;
+            result.GameType = game.GameType;
+            result.StorageType = this.Type;
+            result.IDList.Add(googleResult.DatabaseFileID);
+            result.IDList.Add(googleResult.GameFileID);
+
+            return result;
         }
 
 

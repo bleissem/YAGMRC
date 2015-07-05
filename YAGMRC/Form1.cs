@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -404,12 +405,15 @@ namespace YAGMRC
                     
                 }
 
-                this.m_MainViewModel.CoreMainViewModel.CreateGame.CreateGame(new Core.ViewModels.CreateGameViewModel.CreateGameParam()
+                var createGameResult = this.m_MainViewModel.CoreMainViewModel.CreateGame.CreateGame(new Core.ViewModels.CreateGameViewModel.CreateGameParam()
                     {
                         CreateStorage = sf,
                         Game = game,
                         SavedGame = fileToUpload
                     });
+
+                //TODO: foreach player -> send to others
+                string json = JsonConvert.SerializeObject(createGameResult);
             }
         }
 
